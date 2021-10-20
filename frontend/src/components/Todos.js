@@ -10,7 +10,7 @@ export default function Todos() {
 
   useEffect(() => {
     const fetchData = async () => {
-      const result = await axios("http://localhost:8000/todo");
+      const result = await axios('https://mysterious-basin-95318.herokuapp.com/todo');
       setTodos(result.data.data);
     };
 
@@ -18,7 +18,7 @@ export default function Todos() {
   }, []);
 
   const addTodo = async (todo) => {
-    await axios.post("http://localhost:8000/todo", todo);
+    await axios.post('https://mysterious-basin-95318.herokuapp.com/todo', todo);
     setTodos([todo, ...todos]);
   };
 
@@ -27,13 +27,13 @@ export default function Todos() {
     let todo = todos.find((element) => element.id === id);
     todo.status = todo.status === "check" ? "not check" : "check";
 
-    axios.put(`http://localhost:8000/todo/${id}`, todo);
+    axios.put(`https://mysterious-basin-95318.herokuapp.com/todo/${id}`, todo);
 
     setTodos([...todos]);
   };
 
   const deleteTodo = async (id) => {
-    await axios.delete(`http://localhost:8000/todo/${id}`);
+    await axios.delete(`https://mysterious-basin-95318.herokuapp.com/todo/${id}`);
     setTodos(todos.filter((todo) => todo.id !== id));
   };
 

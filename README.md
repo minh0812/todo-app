@@ -3,7 +3,7 @@
 # Set up backend
 ### 1. $python -m venv venv
 ### 2. $venv\Scripts\activate
-### 2. $pip freeze > requirements.txt
+### 2. $pip install -r requirements.txt
 
 # Setup frontend
 ### 1. $cd frontend

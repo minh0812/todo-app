@@ -1,11 +1,10 @@
 import json
 import os
 from pathlib import Path
-
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-
 from .models.Todo import TodoItem
+import starlette.responses as _responses
 
 app = FastAPI()
 
@@ -39,8 +38,8 @@ def read_todo_data():
 
 
 @app.get("/", tags=["root"])
-async def read_root() -> dict:
-    return {"message": "Welcome to your todo list."}
+async def root():
+    return _responses.RedirectResponse("/redoc")
 
 
 @app.get("/todo", tags=["todos"])
